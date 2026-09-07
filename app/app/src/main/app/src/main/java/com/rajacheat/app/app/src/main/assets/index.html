@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050505">
+<title>RAJA CHEAT — Patch Control Center</title>
+<style>
+:root{--bg:#050505;--panel:#0a0a08;--line:#8a5417;--gold:#ffad18;--yellow:#ffd21a;--muted:#888;--white:#f4f4f4}
+*{box-sizing:border-box}body{margin:0;background:#030303;color:var(--white);font-family:Arial,Helvetica,sans-serif;min-height:100vh}
+body:before{content:"";position:fixed;inset:0;background:linear-gradient(90deg,transparent 49.8%,#17120b 50%,transparent 50.2%),linear-gradient(0deg,transparent 49.8%,#17120b 50%,transparent 50.2%);background-size:80px 80px;opacity:.35;pointer-events:none}
+.wrap{max-width:760px;margin:auto;padding:22px 22px 45px;position:relative}
+.top{display:flex;justify-content:center;gap:12px;margin-bottom:42px}.pill{padding:11px 24px;border-radius:30px;font-weight:800;letter-spacing:1px;font-size:16px}.red{background:#e92735}.blue{background:#1684ef}
+.head{display:flex;align-items:center;gap:22px;margin-bottom:26px}.logo{width:105px;height:105px;border:1px solid #55370f;border-radius:22px;display:grid;place-items:center;background:radial-gradient(circle,#3a260b,#070604 65%);font-weight:900;color:#ffb21a;text-align:center;box-shadow:0 0 24px #4b2d0b55}.logo span{font-size:17px}.brand h1{margin:0;font-size:42px;letter-spacing:5px}.brand p{margin:9px 0 0;color:var(--gold);font-weight:900;letter-spacing:4px;font-size:14px}.gear{margin-left:auto;width:68px;height:68px;border:1px solid #805018;border-radius:50%;display:grid;place-items:center;font-size:34px;color:#ffad18}
+.section-title{color:var(--gold);font-size:19px;font-weight:900;letter-spacing:3px;margin:22px 0 18px}.section-title small{float:right;color:#666;font-size:12px;letter-spacing:1px}
+.status{border:1px solid #774a13;border-radius:36px;padding:26px 32px;background:#080806cc;box-shadow:inset 0 0 30px #000}.row{display:flex;align-items:center;gap:15px;padding:11px 0;font-weight:800;font-size:20px}.ico{width:30px;text-align:center}.row .value{margin-left:auto}.ok{color:#00d867}.muted{color:#777}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.card{border:1px solid #7b4c15;border-radius:30px;padding:28px 25px;background:#080806cc;min-height:310px;position:relative}.card.pink{border-color:#9d143b}.bolt{font-size:32px;color:#ff9415}.card.pink .bolt{color:#ff174e}.card h2{font-size:27px;margin:20px 0 18px}.tag{color:var(--gold);font-weight:900;letter-spacing:2px}.pink .tag{color:#ff3260}.toggle{margin-top:26px;display:flex;gap:10px;align-items:center;color:#777;font-weight:800;letter-spacing:1px}.dot{width:15px;height:15px;border-radius:50%;background:#444}.card.on{box-shadow:0 0 25px #ff9d161c}.card.on .dot{background:#ffb000;box-shadow:0 0 12px #ffb000}.game{border:1px solid #8a5417;border-radius:30px;padding:20px 24px;display:block;background:#090907;text-decoration:none;color:white;transition:.2s}.game:hover{transform:translateY(-2px);box-shadow:0 0 22px #ffad1822}.game .arrow{font-size:28px;color:var(--gold)}.game b{display:block;font-size:22px;margin-top:12px}.game span{display:block;color:#777;margin-top:10px;font-weight:700}.notice{margin-top:22px;border:1px solid #4e3a18;border-radius:18px;padding:15px;color:#aaa;line-height:1.5;font-size:13px}.filebox{border:1px dashed #8a5417;border-radius:22px;padding:20px;margin-top:20px;background:#070705}.filebox input{width:100%;margin-top:10px;color:#aaa}.fileinfo{margin-top:12px;color:#bbb;white-space:pre-wrap;word-break:break-word}
+@media(max-width:600px){.wrap{padding:18px 16px 40px}.top{margin-bottom:30px}.pill{font-size:13px;padding:10px 17px}.brand h1{font-size:31px;letter-spacing:4px}.brand p{font-size:10px;letter-spacing:2px}.logo{width:82px;height:82px}.gear{width:55px;height:55px}.grid{gap:14px}.card{min-height:270px;padding:22px 18px;border-radius:24px}.card h2{font-size:22px}.status{padding:20px}.row{font-size:16px}.game b{font-size:19px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><div class="pill red">●</div><div class="pill blue">➤ TELEGRAM</div></div>
+  <header class="head">
+    <div class="logo"><span>♛<br>RAJA<br>CHEAT</span></div>
+    <div class="brand"><h1>RAJA CHEAT</h1><p>PATCH CONTROL CENTER</p></div>
+    <div class="gear">⚙</div>
+  </header>
+
+  <div class="section-title">◈ DEVICE STATUS</div>
+  <section class="status">
+    <div class="row"><span class="ico"></span><span>OS</span><span class="value" id="os">Mendeteksi…</span></div>
+    <div class="row"><span class="ico">▣</span><span>Device</span><span class="value" id="device">Mendeteksi…</span></div>
+    <div class="row"><span class="ico ok">✓</span><span>Support</span><span class="value ok">WEB READY</span></div>
+  </section>
+
+  <div class="section-title">⚡ PATCH OPTIONS <small>SELECT TO ACTIVATE</small></div>
+  <section class="grid">
+    <div class="card" data-name="AIM DRAG"><div class="bolt">ϟ</div><h2>AIM DRAG</h2><div class="tag">FF NORMAL</div><div class="toggle"><span class="dot"></span> ACTIVATE PATCH</div></div>
+    <div class="card" data-name="AIM CHEST"><div class="bolt" style="color:#ffd21a">ϟ</div><h2>AIM CHEST</h2><div class="tag" style="color:#ffd21a">FF NORMAL</div><div class="toggle"><span class="dot"></span> ACTIVATE PATCH</div></div>
+    <div class="card pink" data-name="PECHO"><div class="bolt">ϟ</div><h2>PECHO</h2><div class="tag">FF MAX</div><div class="toggle"><span class="dot"></span> ACTIVATE PATCH</div></div>
+    <div class="card" data-name="AIM PECHO"><div class="bolt">ϟ</div><h2>AIM PECHO</h2><div class="tag">FF MAX</div><div class="toggle"><span class="dot"></span> ACTIVATE PATCH</div></div>
+  </section>
+
+  <div class="section-title">↗ ENTER GAME</div>
+  <section class="grid">
+    <a class="game" href="intent:#Intent;package=com.dts.freefireth;end"><div class="arrow">↗</div><b>FF NORMAL</b><span>Free Fire</span></a>
+    <a class="game" href="intent:#Intent;package=com.dts.freefireth;end"><div class="arrow">↗</div><b>FF MAX</b><span>Free Fire Max</span></a>
+  </section>
+
+  <div class="filebox">
+    <b>IMPORT localconfig.json</b>
+    <div style="color:#777;margin-top:7px">Pilih file JSON dari penyimpanan perangkat.</div>
+    <input id="file" type="file" accept=".json,application/json">
+    <div id="fileinfo" class="fileinfo"></div>
+  </div>
+
+  <div class="notice">
+    Catatan Android: website biasa tidak mendapat izin untuk menulis langsung ke
+    <b>Android/data/com.dts.freefireth/files/</b>. Tombol import di sini hanya membaca file yang dipilih.
+    Website juga tidak dapat menjamin bypass Play Store atau memodifikasi file game tanpa izin sistem.
+    Tombol FF mencoba membuka aplikasi Free Fire yang sudah terpasang menggunakan Android intent.
+  </div>
+</div>
+<script>
+function detect(){
+  const ua=navigator.userAgent||"";
+  let os=/Android/i.test(ua)?"Android":/iPhone|iPad|iPod/i.test(ua)?"iOS":navigator.platform||"Unknown";
+  document.getElementById("os").textContent=os;
+  let model="Perangkat tidak diekspos browser";
+  const m=ua.match(/Android[^;]*;\s*(?:[a-zA-Z0-9_-]+;\s*)?([^;)]+?)(?:\sBuild\/|[;)])/i);
+  if(m) model=m[1].trim();
+  document.getElementById("device").textContent=model;
+}
+detect();
+
+document.querySelectorAll(".card").forEach(card=>{
+  card.addEventListener("click",()=>{
+    card.classList.toggle("on");
+    const state=card.classList.contains("on")?"ON":"OFF";
+    card.querySelector(".toggle").lastChild.textContent=" "+state+" • ACTIVATE PATCH";
+  });
+});
+
+document.getElementById("file").addEventListener("change",async e=>{
+  const f=e.target.files[0]; if(!f)return;
+  const info=document.getElementById("fileinfo");
+  try{
+    const text=await f.text(), data=JSON.parse(text);
+    info.textContent="✓ "+f.name+" berhasil dibaca.\nKeys: "+Object.keys(data).join(", ");
+  }catch(err){info.textContent="✕ File bukan JSON yang valid."}
+});
+</script>
+</body>
+</html>
